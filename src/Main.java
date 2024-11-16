@@ -158,7 +158,7 @@ public class Main {
             String line;
             while ((line = br.readLine()) != null) {
                 // Read and validate line (values line)
-                if (!line.matches("^\\d+,\\w+,\\w+,\\w+,\\d+(.\\d+)?,\\d+$")) {
+                if (!line.matches("^\\d+,.+,.+,[\\w\\d_-]+,\\d+(.\\d+)?,\\d+$")) {
                     System.out.println("Values line is not correct: " + line);
                     continue;
                 }
@@ -176,7 +176,7 @@ public class Main {
         // Process data (offers sorting by quantity) and output result
         offers.sort(Comparator.comparing(Offer::getQuantity));
 
-        System.out.println("Data processed. Result:");
+        System.out.println("Data processed (sorted by quantity). Result:");
 
         for (int i = 0; i < offers.size(); i++) {
             System.out.println(offers.get(i).toValuesString());
